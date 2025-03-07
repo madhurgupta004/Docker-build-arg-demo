@@ -10,7 +10,7 @@ pipeline {
                     ]) {
                         // Build the Docker image, passing secrets as build args
                         sh 'ls'
-                        sh 'docker build --build-arg SECRET_KEY=$SECRET_KEY .'
+                        sh 'docker buildx build --build-arg SECRET_KEY=$SECRET_KEY .'
                         sh 'echo image built successfully'
                     }
                 }
