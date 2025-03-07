@@ -9,7 +9,7 @@ pipeline {
                         string(credentialsId: 'secret-key-id', variable: 'SECRET_KEY'),
                     ]) {
                         // Build the Docker image, passing secrets as build args
-                        sh 'docker build --build-arg SECRET_KEY=$SECRET_KEY -t my-image:latest .'
+                        sh 'docker build . --build-arg SECRET_KEY=$SECRET_KEY -t my-image:latest'
                         sh 'echo image built successfully'
                     }
                 }
