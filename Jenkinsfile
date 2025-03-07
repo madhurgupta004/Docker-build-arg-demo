@@ -10,7 +10,7 @@ pipeline {
                     ]) {
                         // Build the Docker image, passing secrets as build args
                         sh 'ls'
-                        sh 'docker build .'
+                        sh 'sudo docker build .'
                         sh 'echo image built successfully'
                     }
                 }
