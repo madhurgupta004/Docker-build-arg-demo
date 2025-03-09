@@ -1,7 +1,8 @@
+
 FROM ubuntu
 
-# Define build arguments for secrets
-ARG SECRET_KEY
+# Securely access the secret file using BuildKit
+RUN --mount=type=secret,id=my_secret cat /run/secrets/my_secret > /tmp/secret_file.txt
 
-# Use the secrets in your build (e.g., copy them to a temp location or use in a command)
-RUN echo "$SECRET_KEY" > /tmp/secret_key.txt
+# Optional: Use the secret file in commands
+RUN echo "Using secret file: $(cat /tmp/secret_file.txt)"
